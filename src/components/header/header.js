@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import './header.css';
 
@@ -21,8 +21,10 @@ const Header = () => {
           <a href="#">Starships</a>
         </li>
       </ul>
+
     </div>
-  );
+  )
+   
 };
 
-export default Header;
+export default Header; 

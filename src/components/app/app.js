@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
@@ -22,7 +22,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default App;
