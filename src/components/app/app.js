@@ -8,6 +8,15 @@ import { Record } from "../item-details/item-details";
 
 import SwapiService from "../../services/swapi-service";
 
+import {
+  PersonList,
+  PlanetList,
+  StarshipList,
+  PersonDetails,
+  PlanetDetails,
+  StarshipDetails
+} from '../sw-components';
+
 import './app.css';
 
 export default class App extends React.Component {
@@ -32,64 +41,18 @@ export default class App extends React.Component {
 
   render() {
 
-    const itemList = (
-      <ItemList
-      onItemSelected={this.onItemSelected}
-      getData={this.swapiService.getAllPeople}>
-       { ({name, gender, birthYear}) => `${name} (${gender}, ${birthYear})` }
-      </ItemList>
-    );
-
-    const itemDetails = (
-      <ItemDetails
-        itemId={this.state.selectedItem}
-        getData={this.swapiService.getPerson}
-        getImageUrl={this.swapiService.getPersonImage}>
-          <Record field="gender" label="Gender" />
-          <Record field="eyeColor" label="Eye Color" />
-      </ItemDetails>
-    )
-
-    const planetList = (
-      <ItemList
-      onItemSelected={this.onItemSelected}
-      getData={this.swapiService.getAllPlanets}>
-        { ({name, diameter}) => `${name} (diameter: ${diameter})` }
-      </ItemList>
-    );
-
-    const planetDetails = (
-      <ItemDetails  itemId={this.state.selectedItem} getData={this.swapiService.getPlanet} getImageUrl={this.swapiService.getPlanetImage}>
-        <Record field="diameter" label="Diameter" />
-        <Record field="population" label="Population" />
-      </ItemDetails>
-    )
-
-    const starshiptList = (
-      <ItemList
-      onItemSelected={this.onItemSelected}
-      getData={this.swapiService.getAllStarships} >
-       { ({name}) => name} 
-      </ItemList>
-    );
-
-    const starshipDetails = (
-      <ItemDetails  itemId={this.state.selectedItem} getData={this.swapiService.getStarship} getImageUrl={this.swapiService.getStarshipImage}>
-          <Record field="model" label="Model" />
-          <Record field="crew" label="Crew" />
-      </ItemDetails>
-    )
-
     return (
       <div>
         <Header />
         <RandomPlanet />
 
-        <Row left={itemList} right={itemDetails} />
+        <Row left={<PersonList
+      onItemSelected={this.onItemSelected} />} right={<PersonDetails itemId={10} />} />
 
-        <Row left={planetList} right={planetDetails} />
+        <Row left={<PlanetList
+      onItemSelected={this.onItemSelected}/>} right={<PlanetDetails itemId={1} />} />
 
-        <Row left={starshiptList} right={starshipDetails} />
+        <Row left={<StarshipList onItemSelected={this.onItemSelected}  />} right={<StarshipDetails itemId={5} />} />
 
       </div>
     )
