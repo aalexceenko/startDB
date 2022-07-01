@@ -1,5 +1,5 @@
 export default class SwapiService {
-  async getResource(url) {
+  getResource = async (url) => {
     const res = await fetch(url);
 
     if (!res.ok) {
@@ -10,40 +10,52 @@ export default class SwapiService {
     return body; 
   }
 
-  async getAllPeople() {
+  getAllPeople = async () => {
     const res = await this.getResource(`https://swapi.dev/api/people/`);
-    // console.log(res.results.map(this._transformPerson));
+    console.log(res.results.map(this._transformPerson));
     return res.results.map(this._transformPerson);
   }
 
-  async getPerson(id) {
+  getPerson = async (id) => {
     const person = await this.getResource(`https://swapi.dev/api/people/${id}/`);
     // console.log(this._transformPlanet(person));
 
     return this._transformPerson(person);
   }
 
-  async getAllPlanets() {
+  getAllPlanets = async () => {
     const res = await this.getResource(`https://swapi.dev/api/planets/`);
     console.log(res.results.map(this._transformPlanet));
 
     return res.results.map(this._transformPlanet);
   }
 
-  async getPlanet(id) {
+  getPlanet = async (id) => {
     const planet = await this.getResource(`https://swapi.dev/api/planets/${id}/`);
     // console.log(this._transformPlanet(planet));
     return this._transformPlanet(planet);
   }
 
-  async getAllStarships() {
+  getAllStarships = async () => {
     const res = await this.getResource(`https://swapi.dev/api/starships/`);
     return res.results.map(this._transformStarship);
   }
 
-  async getStarship(id) {
+  getStarship = async (id) => {
     const starship = await this.getResource(`https://swapi.dev/api/starships/${id}/`);
     return this._transformStarship(starship);
+  }
+
+  getPersonImage = ({id}) => {
+     return (`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`)
+  }
+
+  getStarshipImage = ({id}) => {
+    return (`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`)
+  }
+
+  getPlanetImage = ({id}) => {
+    return (`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`)
   }
 
   _extractId(item) {
