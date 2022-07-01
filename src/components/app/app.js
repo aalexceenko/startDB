@@ -2,10 +2,7 @@ import React from "react";
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import ItemList from '../item-list';
-import ItemDetails from '../item-details';
-import { Record } from "../item-details/item-details";
-
+import { SwapiServiceProvider } from "../swapi-service-context";
 import SwapiService from "../../services/swapi-service";
 
 import {
@@ -43,17 +40,18 @@ export default class App extends React.Component {
 
     return (
       <div>
-        <Header />
-        <RandomPlanet />
+        <SwapiServiceProvider value={this.swapiService}>
+          <Header /> 
+          <RandomPlanet />
 
-        <Row left={<PersonList
-      onItemSelected={this.onItemSelected} />} right={<PersonDetails itemId={10} />} />
+          <Row left={<PersonList
+        onItemSelected={this.onItemSelected} />} right={<PersonDetails itemId={10} />} />
 
-        <Row left={<PlanetList
-      onItemSelected={this.onItemSelected}/>} right={<PlanetDetails itemId={1} />} />
+          <Row left={<PlanetList
+        onItemSelected={this.onItemSelected}/>} right={<PlanetDetails itemId={1} />} />
 
-        <Row left={<StarshipList onItemSelected={this.onItemSelected}  />} right={<StarshipDetails itemId={5} />} />
-
+          <Row left={<StarshipList onItemSelected={this.onItemSelected}  />} right={<StarshipDetails itemId={5} />} />
+        </SwapiServiceProvider>
       </div>
     )
   }
