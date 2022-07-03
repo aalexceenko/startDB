@@ -5,9 +5,9 @@ import './item-details.css';
 export const Record = ({item, field, label}) => {
   return (
     <li className="list-group-item">
-    <span className="term">{label}</span>
-    <span>{item[field]}</span>
-  </li>
+      <span className="term">{label}</span>
+      <span>{item[field]}</span>
+    </li>
   );
 };
 
@@ -56,7 +56,7 @@ export default class ItemDetails extends React.Component {
   render() {
     const {item, image} = this.state;
 
-    if (!this.state.item) {
+    if (!item) {
       return <span>Select a item from a list</span>
     }
 
