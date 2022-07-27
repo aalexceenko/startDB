@@ -21,12 +21,7 @@ const withData = (View) => {
           data
         });
       });
-  
-      // this.props.getData().then((data) => {
-      //   this.setState({
-      //     data
-      //   })
-      // })
+
     }
 
     render() {
