@@ -32,14 +32,11 @@ export default class SwapiService {
 
   getPlanet = async (id) => {
     const planet = await this.getResource(`https://swapi.dev/api/planets/${id}/`);
-    // console.log(this._transformPlanet(planet));
     return this._transformPlanet(planet);
   }
 
   getAllStarships = async () => {
     const res = await this.getResource(`https://swapi.dev/api/starships/`);
-    console.log('Starships ', res.results.map(this._transformPlanet));
-
     return res.results.map(this._transformStarship);
   }
 
@@ -99,10 +96,3 @@ export default class SwapiService {
     }
   }
 }
-
-const swapiService = new SwapiService();
-
-swapiService.getPerson(3)
-              .then((person) => {
-                // console.log(person)
-              })

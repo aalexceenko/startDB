@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import './item-details.css';
 
@@ -32,7 +33,6 @@ export default class ItemDetails extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.itemId !== prevProps.itemId) {
       this.updateItem();
-
     }
   }
 
@@ -83,3 +83,8 @@ export default class ItemDetails extends React.Component {
 
 }
 
+ItemDetails.propTypes = {
+  itemId: PropTypes.number.isRequired,
+  getData: PropTypes.func.isRequired,
+  getImageUrl: PropTypes.func.isRequired
+}

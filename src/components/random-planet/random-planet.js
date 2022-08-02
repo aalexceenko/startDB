@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import Spinner from "../spinner";
 import ErrorIndicator from "../error-indicator/error-indicator";
 
@@ -101,4 +101,12 @@ const PlanetView = ({ planet }) => {
         </div>
     </React.Fragment>
   )
+}
+
+PlanetView.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  population: PropTypes.number.isRequired,
+  rotationPeriod: PropTypes.number.isRequired,
+  diameter: PropTypes.number.isRequired
 }
