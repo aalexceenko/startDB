@@ -8,8 +8,6 @@ import { useParams } from 'react-router-dom';
 const StarshipDetails = (props) => {
   const { id } = useParams();
 
-  console.log(id);
-
   return (
     
     <ItemDetails {...props} itemId={Number(id)} >

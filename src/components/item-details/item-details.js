@@ -49,7 +49,6 @@ export default class ItemDetails extends React.Component {
         loading: false,
         image: getImageUrl(item)
       })
-      console.log(this.state.image);
     })
   }
 
@@ -84,7 +83,7 @@ export default class ItemDetails extends React.Component {
 }
 
 ItemDetails.propTypes = {
-  itemId: PropTypes.number.isRequired,
+  itemId: PropTypes.string,
   getData: PropTypes.func.isRequired,
   getImageUrl: PropTypes.func.isRequired
 }

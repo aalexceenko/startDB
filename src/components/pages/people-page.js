@@ -15,8 +15,6 @@ const PeoplePage = () => {
     return (
       <Row
         left={<PersonList onItemSelected={(id) => {
-          console.log(id);
-          console.log(33);
 
           history(`/people/${id}`, { replace: true });
         }}

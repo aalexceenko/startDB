@@ -5,7 +5,6 @@ import './item-list.css';
 
 const ItemList = (props) => {
 
-  console.log(props);
   const {data, onItemSelected, children: renderItem} = props;
   const itemNameList = data.map((item) => {
   const label = renderItem(item);

@@ -104,9 +104,9 @@ const PlanetView = ({ planet }) => {
 }
 
 PlanetView.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  population: PropTypes.number.isRequired,
-  rotationPeriod: PropTypes.number.isRequired,
-  diameter: PropTypes.number.isRequired
+  id: PropTypes.number,
+  name: PropTypes.string,
+  population: PropTypes.number,
+  rotationPeriod: PropTypes.number,
+  diameter: PropTypes.number
 }
